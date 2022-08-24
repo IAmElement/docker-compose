@@ -1,0 +1,35 @@
+services:
+  modmail:
+    image: kyb3rr/modmail
+    restart: always
+    container_name: modmail
+    environment:
+      TOKEN: 
+      LOG_URL: 
+      GUILD_ID: 
+      MODMAIL_GUILD_ID: 
+      OWNERS: 
+      CONNECTION_URI: 
+  logviewer:
+    image: kyb3rr/logviewer
+    restart: always
+    container_name: logviewer
+    ports:
+      - "80:8000"
+    environment:
+      MONGO_URI: 
+
+  mongo:
+    image: mongo:4.4.6
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 
+      MONGO_INITDB_ROOT_PASSWORD: 
+
+volumes:
+  mongodb: null
